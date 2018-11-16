@@ -1,5 +1,5 @@
-<!-- <h1> {{ message }} </h1> -->
-<!-- {% extends 'bootstrap/base.html'%} -->
+
+{% extends 'base.html'%}
 <!DOCTYPE html>
   <html>
     <head>
@@ -10,8 +10,8 @@
         <title> Welcome to the best Movie Review website </title>
         {% endif %}
     </head>
+{% block content %}
 
-  <body>
     <div class="container">
         <h1> {{ message }} </h1>
         <h1>Pickup Lines</h1>
@@ -50,7 +50,5 @@
             <li>Be Genuine</li>
           </ul>
     </div>
-  </body>
-
-</html>
-
+  
+{% endblock %}
