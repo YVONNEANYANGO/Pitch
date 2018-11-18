@@ -10,9 +10,9 @@
     <title> Welcome to the best Movie Review website </title>
     {% endif %}
 </head>
-    {% block content %}
+{% block content %}
 
-    <div class="container">
+<div class="container">
         <h1> {{ message }} </h1>
 
     <h1>Interview Pitch</h1>
@@ -22,5 +22,27 @@
         <li>Keep it natural</li>
         <li>Your pitch should reflect your professionalism</li>
     </ul>
+    <div class="row">
+        <div class="col-md-6">
+          <form>
+            <input type="text" placeholder="Pitch title" class="form-control" required>
+          </form>
+        </div>
+    </div>
+      <br>
+      <div class="row">
+        <div class="col-md-6">
+          <form>
+            <input type="text" placeholder="Pitch Description" class="form-control" required lg>
+          </form>
+        </div>
+    </div>
+    <br>
+    <button class="submit-button" type="submit" onclick="submit">Submit Pitch</button>
+    <!-- title = StringField('Comment title',validators=[Required()])
+    review = TextAreaField('Pitch comment', validators=[Required()])
+    submit = SubmitField('Submit') -->
+</div>
+    
 
-    {% endblock %}
+{% endblock %}
