@@ -1,12 +1,15 @@
 from flask import render_template
 from app import app
+from .models import comments
+# from .forms import CommentForm
+# Comment = comment.Comment
 
 def index():
 
     '''
     View root page function that returns the index page and its data
     '''
-
+    
     title = 'Home - Welcome to One-Minute-Pitch Website Online'
     return render_template('index.html', title = title)
 
@@ -28,6 +31,48 @@ def index():
 def pitch(pitch_id):
 
     '''
-    View pitch page function that returns the movie details page and its data
+    View pitch page function that returns the pitch details page and its data
     '''
     return render_template('pitch.html',id = pitch_id)
+
+@app.route('/pickup')
+def pickup():
+
+    '''
+    View pitch page function that returns the pitch details page and its data
+    '''
+    return render_template('pickup.html')
+
+@app.route('/interview')
+def interview():
+    
+    '''
+    View pitch page function that returns the pitch details page and its data
+    '''
+    return render_template('interview.html')
+
+@app.route('/product')
+def product():
+    
+    '''
+    View pitch page function that returns the pitch details page and its data
+    '''
+    return render_template('product.html')
+
+
+@app.route('/promotion')
+def promotion():
+    
+    '''
+    View pitch page function that returns the pitch details page and its data
+    '''
+    return render_template('promotion.html')
+
+   
+
+
+
+# @app.route('/pitch/comment/new/<int:id>', methods = ['GET','POST'])
+# def new_comment(id):
+#     form = CommentForm()
+#     pitch = get_pitch(id)

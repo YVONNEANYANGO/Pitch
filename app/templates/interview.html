@@ -1,0 +1,26 @@
+{% extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best Movie Review website </title>
+    {% endif %}
+</head>
+    {% block content %}
+
+    <div class="container">
+        <h1> {{ message }} </h1>
+
+    <h1>Interview Pitch</h1>
+    <p>Tips For Pitching Interview</p>
+    <ul>
+        <li>Keep it short and snappy</li>
+        <li>Keep it natural</li>
+        <li>Your pitch should reflect your professionalism</li>
+    </ul>
+
+    {% endblock %}

@@ -1,4 +1,4 @@
-from flask import Flask
+from flask import Flask, redirect, render_template
 from .config import DevConfig
 from flask_bootstrap import Bootstrap
 # from app import views

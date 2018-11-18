@@ -1,0 +1,29 @@
+{% extends 'base.html'%}
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    {% if title %}
+    <title> {{ title }}</title>
+    {% else %}
+    <title> Welcome to the best Movie Review website </title>
+    {% endif %}
+</head>
+{% block content %}
+
+    <div class="container">
+            <h1> {{ message }} </h1>
+
+
+        <h1>Product Pitch</h1>
+        <p>Your pitch MUST include the following steps</p>
+        <ul>
+            <li>Put together a professional information sheet on your product</li>
+            <li>Show why you are knowledgeable about your product idea</li>
+            <li>Pick a distribution channel you can penetrate,and have a plan to do so</li>
+            <li>Create a Target Customer Profile Chart</li>
+            <li>Have a great name,slogan and packaging concept</li>
+        </ul>
+    </div>
+{% endblock %}
