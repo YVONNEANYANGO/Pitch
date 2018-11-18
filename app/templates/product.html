@@ -11,30 +11,35 @@
     {% endif %}
 </head>
 {% block content %}
-
     <div class="container">
-            <h1> {{ message }} </h1>
+      <h1> {{ message }} </h1>
 
-
-        <h1>Product Pitch</h1>
-        <p>Your pitch MUST include the following steps</p>
-        <ul>
-            <li>Put together a professional information sheet on your product</li>
-            <li>Show why you are knowledgeable about your product idea</li>
-            <li>Pick a distribution channel you can penetrate,and have a plan to do so</li>
-            <li>Create a Target Customer Profile Chart</li>
-            <li>Have a great name,slogan and packaging concept</li>
-        </ul>
+        <div class="row">
+          <div class="col-md-6">
+            <h1>Product Pitch</h1>
+            <p>Your pitch MUST include the following steps</p>
+              <ul>
+                <li>Put together a professional information sheet on your product</li>
+                <li>Show why you are knowledgeable about your product idea</li>
+                <li>Pick a distribution channel you can penetrate,and have a plan to do so</li>
+                <li>Create a Target Customer Profile Chart</li>
+                <li>Have a great name,slogan and packaging concept</li>
+              </ul>
+          </div>
+          <div class="col-md-6">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRdTYFulEEgyxQp0d3l1tDtrLfL1uFocP0pQ0uFx2kNUL8X73T0" height="250" width="450" alt="photo">
+          </div>
+        </div>
     </div>
     <div class="container">
         <div class="row">
             <div class="col-md-6">
                 <form>
-                    <input type="text" placeholder="Pitch title" class="form-control" required>
+                  <input type="text" placeholder="Pitch title" class="form-control" required>
                 </form>
             </div>
         </div>
-        <br>
+          <br>
         <div class="row">
             <div class="col-md-6">
                 <form>
@@ -42,7 +47,7 @@
                 </form>
             </div>
         </div>
-        <br>
+          <br>
         <button class="submit-button" type="submit" onclick="submit">Submit Pitch</button>
     </div>
 
