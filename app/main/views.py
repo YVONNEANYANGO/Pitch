@@ -1,5 +1,7 @@
 from flask import render_template
-from app import app
+# from app import app
+from .. import db
+from . import main
 from .models import comments
 # from .forms import CommentForm
 # Comment = comment.Comment
