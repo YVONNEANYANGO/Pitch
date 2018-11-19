@@ -3,6 +3,8 @@ import os
 class Config:
     SECRET_KEY = os.environ.get('SECRET_KEY')
     SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:valqueen@localhost/pitch'
+
+    UPLOADED_PHOTOS_DEST ='app/static/photos'
     '''
     General configuration parent class
     '''

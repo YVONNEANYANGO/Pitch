@@ -5,8 +5,10 @@ from flask_sqlalchemy import SQLAlchemy
 from .config import config_options
 from flask_login import LoginManager
 from . import views,forms
+from flask_uploads import UploadSet,configure_uploads,IMAGES
 # from app import views
 # from app import error
+
 
 login_manager = LoginManager()
 login_manager.session_protection = 'strong'
@@ -17,11 +19,15 @@ login_manager.login_view = 'auth.login'
 db = SQLAlchemy()
 bootstrap = Bootstrap()
 
+photos = UploadSet('photos',IMAGES)
 def create_app(config_name):
     app = Flask(__name__)
 
     # Creating the app configurations
     app.config.from_object(config_options[config_name])
+
+    # Configure UploadSet
+    configure_uploads(app,photos)
 
     # Initializing flask extensions
     bootstrap.init_app(app)
