@@ -2,6 +2,7 @@ from flask import render_template
 # from app import app
 from .. import db
 from . import main
+from flask_login import login_required
 # from ..models import comments
 # from .forms import CommentForm
 # Comment = comment.Comment
@@ -28,6 +29,12 @@ def index():
     message = 'Welcome To OneMinutePitch!!!'
     print(message)
     return render_template('index.html',message = message)
+
+
+@main.route('/pitch/comment/new/<int:id>', methods = ['GET','POST'])
+@login_required
+def new_comment(id):
+
 
 @main.route('/pitch/<int:pitch_id>')
 def pitch(pitch_id):

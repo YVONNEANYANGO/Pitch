@@ -4,6 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from .config import config_options
 from flask_login import LoginManager
+from . import views,forms
 # from app import views
 # from app import error
 
