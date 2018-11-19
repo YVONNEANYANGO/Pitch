@@ -1,4 +1,6 @@
 class Config:
+    SECRET_KEY = os.environ.get('SECRET_KEY')
+    SQLALCHEMY_DATABASE_URI = 'postgresql+psycopg2://moringaschool:moringa1234@localhost/pitch'
     '''
     General configuration parent class
     '''
