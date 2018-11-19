@@ -1,14 +1,15 @@
 from flask import Flask, redirect, render_template
-from .config import DevConfig
+# from .config import DevConfig
 from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
-from config import config_options
+from .config import config_options
 # from app import views
 # from app import error
 
 # from app import views
 # return app
 db = SQLAlchemy()
+bootstrap = Bootstrap()
 
 def create_app(config_name):
     app = Flask(__name__)

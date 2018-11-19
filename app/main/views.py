@@ -2,7 +2,7 @@ from flask import render_template
 # from app import app
 from .. import db
 from . import main
-from .models import comments
+# from ..models import comments
 # from .forms import CommentForm
 # Comment = comment.Comment
 
@@ -16,7 +16,7 @@ def index():
     return render_template('index.html', title = title)
 
 # Views
-@app.route('/')
+@main.route('/')
 def index():
 
     
@@ -29,7 +29,7 @@ def index():
     print(message)
     return render_template('index.html',message = message)
 
-@app.route('/pitch/<int:pitch_id>')
+@main.route('/pitch/<int:pitch_id>')
 def pitch(pitch_id):
 
     '''
@@ -37,7 +37,7 @@ def pitch(pitch_id):
     '''
     return render_template('pitch.html',id = pitch_id)
 
-@app.route('/pickup')
+@main.route('/pickup')
 def pickup():
 
     '''
@@ -45,7 +45,7 @@ def pickup():
     '''
     return render_template('pickup.html')
 
-@app.route('/interview')
+@main.route('/interview')
 def interview():
     
     '''
@@ -53,7 +53,7 @@ def interview():
     '''
     return render_template('interview.html')
 
-@app.route('/product')
+@main.route('/product')
 def product():
     
     '''
@@ -62,7 +62,7 @@ def product():
     return render_template('product.html')
 
 
-@app.route('/promotion')
+@main.route('/promotion')
 def promotion():
     
     '''
@@ -74,7 +74,7 @@ def promotion():
 
 
 
-# @app.route('/pitch/comment/new/<int:id>', methods = ['GET','POST'])
+# @main.route('/pitch/comment/new/<int:id>', methods = ['GET','POST'])
 # def new_comment(id):
 #     form = CommentForm()
 #     pitch = get_pitch(id)
