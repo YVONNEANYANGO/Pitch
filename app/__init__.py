@@ -4,7 +4,7 @@ from flask_bootstrap import Bootstrap
 from flask_sqlalchemy import SQLAlchemy
 from .config import config_options
 from flask_login import LoginManager
-from . import views,forms
+from . import *
 from flask_uploads import UploadSet,configure_uploads,IMAGES
 from flask_mail import Mail
 # from app import views
@@ -36,7 +36,7 @@ def create_app(config_name):
     # Initializing flask extensions
     bootstrap.init_app(app)
     mail.init_app(app)
-    
+
     # db = SQLAlchemy()
     db.init_app(app)
     login_manager.init_app(app)

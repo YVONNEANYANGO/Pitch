@@ -1,10 +1,10 @@
 from flask import render_template,request,redirect,url_for,abort
 # from app import app
-from ..models import Comments, User
+from ..models import Comment, User, Pitch
 from .. import db,photos
 from . import main
 from flask_login import login_required
-from .forms import ReviewForm,UpdateProfile
+from .forms import UpdateProfileForm, InterviewForm
 # from ..models import comments
 # from .forms import CommentForm
 # Comment = comment.Comment
@@ -20,6 +20,7 @@ def index():
 
 # Views
 @main.route('/')
+@login_required
 def index():
 
     
@@ -38,9 +39,12 @@ def index():
 def new_comment(id):
 
 
-@main.route('/user/<uname>')
-def profile(uname):
-    user = User.query.filter_by(username = uname).first()
+    @main.route('/user/<uname>')
+    def profile(uname):
+        '''
+        views
+        '''
+        user = User.query.filter_by(username = uname).first()
 
     if user is None:
         abort(404)
@@ -65,7 +69,7 @@ def update_profile(uname):
 
         return redirect(url_for('.profile',uname=user.username))
 
-    return render_template('profile/update.html',form =form)
+    return render_template('profile/update.html')
 
 
 @main.route('/user/<uname>/update/pic',methods= ['POST'])
@@ -96,13 +100,22 @@ def pickup():
     '''
     return render_template('pickup.html')
 
-@main.route('/interview')
-def interview():
-    
+@main.route('/interview', methods = ["GET","POST"])
+def Interview():
+    form = InterviewForm()
+    if form.validate_on_submit():
+        interview = form.body.data 
+        db.session.add(interview_pitch)
+        db.session.commit()
+        flash('Your pitch is already created')
+        return redirect(url_for('main.new_pitch'))
+    # title = "Create a pitch"
+    pitches = Pitch.query.all()
+    comments = Comment.query.all()
     '''
     View pitch page function that returns the pitch details page and its data
     '''
-    return render_template('interview.html')
+    return render_template('interview.html',form =form, interview_data =pitches )
 
 @main.route('/product')
 def product():

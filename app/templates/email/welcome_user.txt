@@ -1,0 +1,4 @@
+Hello {{user.username}}
+Welcome to OneMinutePitch
+You have successfully signed up for the OneMinutePitch,this is one of the best platform where you can view your opinions and thoughts moreover you can also leave your comments with us.
+Looking foward to more interrative sessions with you.Stay tuned!!!

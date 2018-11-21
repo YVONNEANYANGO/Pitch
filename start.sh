@@ -1,5 +1,7 @@
-python3 manage.py runserver
 
-export MAIL_USERNAME=<Your Email Address>
-export MAIL_PASSWORD=<Your Email Password>
+export MAIL_USERNAME="ivonnahbonswuh@gmail.com"
+export MAIL_PASSWORD="valqueen"
+export SECRET_KEY=ivyvalencialrt
+
+
 python3.6 manage.py server

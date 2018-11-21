@@ -7,7 +7,7 @@
     {% if title %}
     <title> {{ title }}</title>
     {% else %}
-    <title> Welcome to the best Movie Review website </title>
+    <title> Welcome to oneMinutePitch website </title>
     {% endif %}
 </head>
 {% block content %}
@@ -23,14 +23,37 @@
         <li>Your pitch should reflect your professionalism</li>
       </ul>
     <div class="row">
-        <div class="col-md-6">
-          <form>
-            <input type="text" placeholder="Pitch title" class="form-control" required>
-          </form>
-        </div>
-    </div>
-      <br>
-    <div class="row">
+      <div class="col-md-6">
+        <form method="POST" action="">
+          {{ form.hidden_tag() }}
+          <fieldset class="form-group">
+            </div>
+            <div class="row">
+              <div class="col-md-6">
+                  <div class="form-group">
+                    {{ form.body.label(class="form-control-label") }} 
+                    {% if form.body.errors %} 
+                    {{ form.body(class="form-control-lg is -invalid") }}
+                    <div class="invalid-feedback">
+                      {% for error in form.content.errors %}
+                      <span>{{ error }}</span>
+                      {% endfor %}
+                    </div>
+                    {% else %} 
+                    {{ form.body(class="form-control-lg") }} 
+                    {% endif%}
+                  </div>
+              </div>
+            </div>
+          </fieldset>
+          <div class="form-group">
+            {{ form.submit(class="btn btn-outline-info") }}
+          </div>
+        </form>
+      </div> 
+</div> 
+      <!-- <br> -->
+    <!-- <div class="row">
         <div class="col-md-6">
           <form>
             <input type="text" placeholder="Pitch Description" class="form-control" required lg>
@@ -40,6 +63,7 @@
       <br>
     <button class="submit-button" type="submit" onclick="submit">Submit Pitch</button>
 </div>
-    
+</form> -->
+     -->
 
 {% endblock %}
