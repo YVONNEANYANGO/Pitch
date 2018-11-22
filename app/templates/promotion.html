@@ -32,25 +32,46 @@
                 </ul>
             </div>
         </div>
-    </div>
-        <div class="container">
+        <br><br>
+        <!-- <div class="container"> -->
             <div class="row">
                 <div class="col-md-6">
-                    <form>
-                        <input type="text" placeholder="Pitch title" class="form-control" required>
-                    </form>
+                    <form method="POST" action="">
+                        {{ form.hidden_tag() }}
+                        <fieldset class="form-group">
                 </div>
-            </div>
-                <br>
-            <div class="row">
-                <div class="col-md-6">
-                    <form>
-                        <input type="text" placeholder="Pitch Description" class="form-control" required>
-                    </form>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            {{ form.body.label(class="form-control-label") }}
+                            {% if form.body.errors %}
+                            {{ form.body(class="form-control-lg is -invalid") }}
+                            <div class="invalid-feedback">
+                                {% for error in form.content.errors %}
+                                <span>{{ error }}</span>
+                                {% endfor %}
+                            </div>
+                            {% else %}
+                            {{ form.body(class="form-control-lg") }}
+                            {% endif%}
+                        </div>
+                    </div>
                 </div>
+                </fieldset>
+                <div class="form-group">
+                    {{ form.submit(class="btn btn-outline-info") }}
+                </div>
+                </form>
             </div>
-                <br>
-            <button class="submit-button" type="submit" onclick="submit">Submit Pitch</button>
+            {% for pitch in promotion_data%}
+            <p>{{pitch.description}}</p>
+            <div class="form-group">
+                {{ form.submit(class="btn btn-outline-info")}}
+            </div>
+            {% endfor %}
+            {% for comment in comments%}
+            <p>{{pitch.description}}</p>
+            {% endfor %}
         </div>
 
 {% endblock %}

@@ -51,19 +51,16 @@
           </div>
         </form>
       </div> 
-</div> 
-      <!-- <br> -->
-    <!-- <div class="row">
-        <div class="col-md-6">
-          <form>
-            <input type="text" placeholder="Pitch Description" class="form-control" required lg>
-          </form>
-        </div>
-    </div>
-      <br>
-    <button class="submit-button" type="submit" onclick="submit">Submit Pitch</button>
+      {% for pitch in interview_data%}
+      <p>{{pitch.description}}</p>
+      <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info")}}
+      </div>
+      {% endfor %}
+      {% for comment in comments%}
+      <p>{{pitch.description}}</p>
+      {% endfor %}
+      </div>
 </div>
-</form> -->
-     -->
 
 {% endblock %}

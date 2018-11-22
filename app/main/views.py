@@ -3,10 +3,10 @@ from flask import render_template,request,redirect,url_for,abort
 from ..models import Comment, User, Pitch
 from .. import db,photos
 from . import main
-from flask_login import login_required
-from .forms import UpdateProfileForm, InterviewForm
-# from ..models import comments
-# from .forms import CommentForm
+from flask_login import login_required,current_user
+from .forms import UpdateProfileForm, InterviewForm,PromotionForm,PickupForm,ProductForm
+# from ..models import Comments
+from .forms import CommentForm
 # Comment = comment.Comment
 
 def index():
@@ -18,13 +18,10 @@ def index():
     title = 'Home - Welcome to One-Minute-Pitch Website Online'
     return render_template('index.html', title = title)
 
-# Views
+# ViewC
 @main.route('/')
 @login_required
 def index():
-
-    
-
     '''
     View root page function that returns the index page and its data
     '''
@@ -84,61 +81,88 @@ def update_pic(uname):
     return redirect(url_for('main.profile',uname=uname))
 
 
-@main.route('/pitch/<int:pitch_id>')
-def pitch(pitch_id):
+# @main.route('/comment/') 
+# def comment():
 
-    '''
-    View pitch page function that returns the pitch details page and its data
-    '''
-    return render_template('pitch.html',id = pitch_id)
+#     '''
+#     View pitch page function that returns the pitch details page and its data
+#     '''
 
-@main.route('/pickup')
+#     return render_template('comment.html')
+
+@main.route('/pickup', methods = ["GET","POST"])
 def pickup():
+    form = PickupForm()
+    if form.validate_on_submit():
+        pickup = form.body.data
+        pitch = Pitch(description = pickup, user = current_user, category = "pickup")
+        db.session.add(pitch)
+        db.session.commit()
+        # flash('Your pitch is already created')
+        # return redirect(url_for('main.pitch'))
 
+    pitches = Pitch.query.filter_by(category = "pickup")
+    comments = Comment.query.filter_by(category = "pickup")
     '''
     View pitch page function that returns the pitch details page and its data
     '''
-    return render_template('pickup.html')
+    return render_template('pickup.html', form = form, pickup_data = pitches,comments = comments)
 
 @main.route('/interview', methods = ["GET","POST"])
 def Interview():
     form = InterviewForm()
     if form.validate_on_submit():
         interview = form.body.data 
-        db.session.add(interview_pitch)
+        pitch = Pitch(description = interview, user = current_user, category = "interview")
+        db.session.add(pitch)
         db.session.commit()
-        flash('Your pitch is already created')
-        return redirect(url_for('main.new_pitch'))
+        # flash('Your pitch is already created')
     # title = "Create a pitch"
-    pitches = Pitch.query.all()
-    comments = Comment.query.all()
+    pitches = Pitch.query.filter_by(category = "interview")
+    comments = Comment.query.filter_by(category = "interview")
     '''
     View pitch page function that returns the pitch details page and its data
     '''
-    return render_template('interview.html',form =form, interview_data =pitches )
+    return render_template('interview.html',form =form, interview_data =pitches,comments = comments )
 
-@main.route('/product')
+@main.route('/product', methods = ["GET","POST"])
 def product():
+    form = ProductForm()
+    if form.validate_on_submit():
+        product = form.body.data
+        pitch = Pitch(description = product, user = current_user, category = "product")
+        db.session.add(pitch)
+        db.session.commit()
+        # flash('Your pitch is already created')
+        # return redirect(url_for('main.pitch'))
+
+    pitches = Pitch.query.filter_by(category = "product")
     
     '''
     View pitch page function that returns the pitch details page and its data
     '''
-    return render_template('product.html')
+    return render_template('product.html', form = form, product_data = pitches)
 
-
-@main.route('/promotion')
+@main.route('/promotion', methods = ["GET","POST"])
 def promotion():
-    
+    form = PromotionForm()
+    if form.validate_on_submit():
+        promotion = form.body.data
+        pitch = Pitch(description = promotion, user = current_user, category = "promotion")
+        db.session.add(pitch)
+        db.session.commit()
+        # flash('Your pitch is already created')
+        # return redirect(url_for('main.pitch'))
+
+    pitches = Pitch.query.filter_by(category = "promotion")
+    comments = Comment.query.filter_by(category = "promotion")
     '''
     View pitch page function that returns the pitch details page and its data
     '''
-    return render_template('promotion.html')
+    return render_template('promotion.html', form = form, promotion_data = pitches, comments = comments)
 
-   
+# # comment-section
+# @main.route('/comments/<int:id>', methods=['GET','POST']
 
 
 
-# @main.route('/pitch/comment/new/<int:id>', methods = ['GET','POST'])
-# def new_comment(id):
-#     form = CommentForm()
-#     pitch = get_pitch(id)

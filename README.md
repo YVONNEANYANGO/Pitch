@@ -4,16 +4,17 @@
 
 ## Brief Description
 
-Password_Locker is a terminal run python application that creates room for users with one or more accounts to log in and store their credentials.
+Super-Pitch is an interractive website where users are given an opportunity to express and share their ideas to the public.This website promotes good communication skills and interractive skills.
 
 ## User Stories
 
 Benefits for the users...Users are able to:-
- * Create password locker account with their details eg Log-in and password
+ * 
  * Store their existing login credentials 
  * Generate password for a new credential
 
  ## Behaviour Driven Development(BDD)
+
 
 ## SetUp/Installation Requirements
 
