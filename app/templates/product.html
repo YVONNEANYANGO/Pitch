@@ -65,9 +65,8 @@
         
         {% for pitch in product_data%}
         <p>{{pitch.description}}</p>
-        <div class="form-group">
-            {{ form.submit(class="btn btn-outline-info")}}
-        </div>
+        <a href="{{url_for('main.comment',pitch_id = pitch.id)}}"><button class="btn btn-outline-info">Add comment</button></a>
+        <a href="{{url_for('main.view_comments',pitch_id = pitch.id)}}"><button class="btn btn-outline-info">View Comment</button></a>
         {% endfor %}
         {% for comment in comments%}
         <p>{{pitch.description}}</p>
