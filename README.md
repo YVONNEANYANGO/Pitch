@@ -26,31 +26,31 @@ Benefits for the users...Users are able to:-
  **Behaviour**
 If the user has no account to access the application he or she has to sign up
  **Input**
-    * Enter Email Address, Username, Password, Confirm Password
+   * Enter Email Address, Username, Password, Confirm Password
  **Result**
-    * A login form is rendered to be filled in order to access and interract with the application
+   * A login form is rendered to be filled in order to access and interract with the application
 
  **Behaviour**
 To access this application as a registered user you have to log in
  **Input**
-    * Enter Your Email Address and Password
+   * Enter Your Email Address and Password
  **Result**
-    * New Account is created and the new user is registered
-    * The user is directed to the home page of the application
+   * New Account is created and the new user is registered
+   * The user is directed to the home page of the application
 
  **Behaviour**
 To view the different pitches other users have posted
  **Input**
-    * Click on specific pitch category on the navigation bar
-Result
-    * A list of different pitches will be displayed on the screen
+   * Click on specific pitch category on the navigation bar
+ **Result**
+   * A list of different pitches will be displayed on the screen
 
  **Behaviour**
 View the comments other users have posted
  **Input**
-    * Click on the view comments of the specific pitch you want to view
+   * Click on the view comments of the specific pitch you want to view
  **Result**
-    * A list of different comments will be displayed on the screen
+   * A list of different comments will be displayed on the screen
 
 ## Terminologies Used
 
